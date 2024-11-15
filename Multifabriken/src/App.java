@@ -24,9 +24,9 @@ public class App {
 
             switch (choice) {
                 case 1 -> orderedProducts.add(createCar(scanner));
-                case 2 -> System.out.println(2);
-                case 3 -> System.out.println(3);
-                case 4 -> System.out.println(4);
+                case 2 -> orderedProducts.add(createCandy(scanner));
+                case 3 -> orderedProducts.add(createPipe(scanner));
+                case 4 -> orderedProducts.add(createOatMilk(scanner));
                 case 5 -> listOrders();
                 case 6 -> running = false;
                 default -> System.out.println("Ogiltigt val, försök igen.");
@@ -42,6 +42,34 @@ public class App {
         System.out.print("Ange bilmärke: ");
         String brand = scanner.nextLine();
         return new Car(regNum, color, brand);
+    }
+
+    
+    private static Candy createCandy(Scanner scanner) {
+        System.out.print("Ange smak: ");
+        String flavor = scanner.nextLine();
+        System.out.print("Ange antal: ");
+        int quantity = scanner.nextInt();
+        scanner.nextLine(); // Rensa raden
+        return new Candy(flavor, quantity);
+    }
+
+    private static Pipe createPipe(Scanner scanner) {
+        System.out.print("Ange diameter: ");
+        double diameter = scanner.nextDouble();
+        System.out.print("Ange längd: ");
+        double length = scanner.nextDouble();
+        scanner.nextLine(); // Rensa raden
+        return new Pipe(diameter, length);
+    }
+
+    private static OatMilk createOatMilk(Scanner scanner) {
+        System.out.print("Ange fetthalt: ");
+        double fatContent = scanner.nextDouble();
+        System.out.print("Ange litermängd: ");
+        double liters = scanner.nextDouble();
+        scanner.nextLine(); // Rensa raden
+        return new OatMilk(fatContent, liters);
     }
 
     private static void listOrders() {
